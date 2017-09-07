@@ -68,5 +68,60 @@ public class Calculate {
 		 binomialMultiplication = firstPart +"n^2" + "+" + secondPart + "n" + "+" + lastPart;
 		 return  binomialMultiplication;
 	}
+	public static boolean isDivisibleBy (int integer1, int integer2)
+	{
+	
+		return integer1% integer2==0;
+	
+	}
+	public static double absValue (double integer)
+	{
+		return Math.abs(integer);
+	}
+	public static double max (double integer1, double integer2)
+	{
+		if (integer1>integer2)
+		{
+			return integer1;
+		}
+		if (integer1<integer2)
+		{
+			return integer2;
+		}
+				
+		else 
+		{
+			return integer2;
+		}
+			}
+	public static double max (double integer1, double integer2, double integer3)
+	{
+		if (integer1>integer2)
+		{
+			if (integer1>integer3)
+				{return integer1;}
+			else
+			{
+				return integer3;
+			}
+		}
+		if (integer1<integer2)
+		{
+			if (integer2<integer3)
+			{
+				return integer2;
+			}
+			else 
+			{
+				return integer3;
+			}
+		}
+		if (integer1==integer3)
+		{
+			return integer1;
+		}
+			
+		
+	}
 }
 	
