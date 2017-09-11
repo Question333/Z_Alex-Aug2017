@@ -68,16 +68,19 @@ public class Calculate {
 		 binomialMultiplication = firstPart +"n^2" + "+" + secondPart + "n" + "+" + lastPart;
 		 return  binomialMultiplication;
 	}
+	//accepts two integers and determines whether or not one integer is evenly divisible by another
 	public static boolean isDivisibleBy (int integer1, int integer2)
 	{
 	
 		return integer1% integer2==0;
 	
 	}
+	//accepts a integer and returns the absolute value of it
 	public static double absValue (double integer)
 	{
 		return Math.abs(integer);
 	}
+	//finds the biggest number of two integer
 	public static double max (double integer1, double integer2)
 	{
 		if (integer1>integer2)
@@ -94,6 +97,7 @@ public class Calculate {
 			return integer2;
 		}
 			}
+	//finds the max of three integers
 	public static double max (double integer1, double integer2, double integer3)
 	{
 		if (integer1>integer2)
@@ -124,6 +128,7 @@ public class Calculate {
 			return integer1; 
 		
 	}
+	//finds the smallest of two integers
 	public static int min ( int integer1, int integer2)
 	{
 		if (integer1<integer2)
@@ -137,6 +142,7 @@ public class Calculate {
 		return integer2; 
 		
 	}
+	//rounds a double input into two decimal places
 	public static double round2 ( double integer1)
 	{
 		return Math.round(integer1*100.0)/100.0;
