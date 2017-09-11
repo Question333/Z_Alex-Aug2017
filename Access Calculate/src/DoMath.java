@@ -18,7 +18,9 @@ public class DoMath {
 		System.out.println(Calculate.isDivisibleBy(8 ,4));
 		System.out.println(Calculate.absValue(-8));
 		System.out.println(Calculate.max(8,7));
-		System.out.println(Calculate.max(8,7,6));
+		System.out.println(Calculate.max(9,9,9));
+		System.out.println(Calculate.min(9,2));
+		System.out.println(Calculate.round2(9.02123123));
 	}
 
 }

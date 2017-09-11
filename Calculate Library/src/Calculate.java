@@ -120,8 +120,26 @@ public class Calculate {
 		{
 			return integer1;
 		}
-			
+		else 
+			return integer1; 
 		
+	}
+	public static int min ( int integer1, int integer2)
+	{
+		if (integer1<integer2)
+		{
+			return integer1;
+		}
+		if (integer1>integer2)
+		{
+			return integer2;
+		}
+		return integer2; 
+		
+	}
+	public static double round2 ( double integer1)
+	{
+		return Math.round(integer1*100.0)/100.0;
 	}
 }
 	
