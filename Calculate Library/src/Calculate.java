@@ -78,7 +78,8 @@ public class Calculate {
 	//accepts a integer and returns the absolute value of it
 	public static double absValue (double integer)
 	{
-		return Math.abs(integer);
+		if(integer>0) return integer;
+		else { return integer*-1; } 
 	}
 	//finds the biggest number of two integer
 	public static double max (double integer1, double integer2)
@@ -143,9 +144,35 @@ public class Calculate {
 		
 	}
 	//rounds a double input into two decimal places
-	public static double round2 ( double integer1)
+	public static double round2 ( double integer)
 	{
-		return Math.round(integer1*100.0)/100.0;
+		if(integer *1000 % 10  <5) {
+			return (integer *1000 - integer * 1000 % 10) /1000;
+		}
+		else {
+			return (10- integer * 1000 % 10 + integer *1000)/1000;
+		}
+	}
+	public static double exponent (double integer1, int power)
+	{
+		for(int x=1; x<power; x=x+1) {
+		
+		double times = integer1;
+		integer1=integer1* times; }
+		return integer1;
+	}
+	public static int factorial (int integer1)
+	{
+		int x = 1;
+		while(integer1>0) {
+			x = integer1 *x;
+			integer1--;
+		}
+		return x;	
+	}
+	public static boolean isPrime (int integer1)
+	{
+		for 
 	}
 }
 	

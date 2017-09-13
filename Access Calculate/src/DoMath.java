@@ -21,6 +21,8 @@ public class DoMath {
 		System.out.println(Calculate.max(9,9,9));
 		System.out.println(Calculate.min(9,2));
 		System.out.println(Calculate.round2(9.02123123));
+		System.out.println(Calculate.exponent(2, 3));
+		System.out.println(Calculate.factorial(5));
 	}
 
 }
