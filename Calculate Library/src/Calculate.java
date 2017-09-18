@@ -72,7 +72,8 @@ public class Calculate {
     //accepts two integers and determines whether or not one integer is evenly divisible by another
     public static boolean isDivisibleBy (int integer1, int integer2)
     {
-    
+    	if (integer2==0)
+    		throw new IllegalArgumentException("Can not divide by zero" + integer2);
         return integer1% integer2==0;
     
     }
@@ -154,16 +155,22 @@ public class Calculate {
             return (10- integer * 1000 % 10 + integer *1000)/1000;
         }
     }
+    //Multiplies an integer by the inputed power/
     public static double exponent (double integer1, int power)
     {
+    	if(power<0)
+    		throw new IllegalArgumentException("Code does not take negative power:" + power);
         for(int x=1; x<power; x=x+1) {
         
         double times = integer1;
         integer1=integer1* times; }
         return integer1;
     }
+    //finds factorial of integer
     public static int factorial (int integer1)
     {
+    	if (integer1<0)
+    		throw new IllegalArgumentException("negative integer:" + integer1);
         int x = 1;
         while(integer1>0) {
             x = integer1 *x;
@@ -171,6 +178,7 @@ public class Calculate {
         }
         return x;   
     }
+    //finds if the number inputted is prime or not
     public static boolean isPrime (int integer1)
     {
         for(int i =2; i<integer1; i++) {
@@ -179,6 +187,7 @@ public class Calculate {
         }
         return false;
     }
+    //finds the greatest common factor of two numbers
     public static int gcf ( int number1, int number2) {
        if (number2== 0)
        return number1;
@@ -187,12 +196,18 @@ public class Calculate {
        else 
         return gcf(number2, number1 % number2);
         }
+    //squares a number
     public static double sqrt (double number1) {
         double number2= 1;
+        if (number1<0)
+        throw new IllegalArgumentException("Can not square negative number: " + number1);
         while (number1 >= number2*number2) {
             number2++;
         }
         return round2(.5*(number1/number2 + number2));
+    }
+    public static String quadForm (int a, int b, int c) {
+    	
     }
         
 }
