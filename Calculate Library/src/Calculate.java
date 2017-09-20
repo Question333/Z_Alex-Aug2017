@@ -207,7 +207,10 @@ public class Calculate {
         return round2(.5*(number1/number2 + number2));
     }
     public static String quadForm (int a, int b, int c) {
-    	
+    	double inside= sqrt(square(b)-4*(a)*(c));
+    	double oneRoot = -b + inside)/(a*2);
+    	double twoRoot= -b - inside/(a*2);
+    	max(oneRoot, twoRoot);
     }
         
 }
