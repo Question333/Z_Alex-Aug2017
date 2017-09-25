@@ -39,7 +39,7 @@ public class Calculate {
     public static double discriminant (double a, double b, double c)
     {
         
-        return b*b - 4 * a *c;      
+        return (b*b) - (4 * a *c);      
     }
     //finds mixedNumber of the input 
     public static String toImproperFrace (int wholeNumber, int numerator, int denominator)
@@ -146,14 +146,19 @@ public class Calculate {
         
     }
     //rounds a double input into two decimal places
-    public static double round2 ( double integer)
+    public static double round2 ( double orig)
     {
-        if(integer *1000 % 10  <5) {
-            return (integer *1000 - integer * 1000 % 10) /1000;
-        }
-        else {
-            return (10- integer * 1000 % 10 + integer *1000)/1000;
-        }
+    	double result = 0.0;
+		
+    	int tempInt = (int)(orig * 1000);
+    	int roundNum = tempInt % 10;
+    	tempInt = tempInt / 10;
+    	if (roundNum >= 5 && tempInt > 0)
+    		tempInt++;
+    	else if(roundNum <= -5 && tempInt < 0)
+    		tempInt--;
+    	result = tempInt / 100.0;
+    	return result;
     }
     //Multiplies an integer by the inputed power/
     public static double exponent (double integer1, int power)
@@ -207,10 +212,24 @@ public class Calculate {
         return round2(.5*(number1/number2 + number2));
     }
     public static String quadForm (int a, int b, int c) {
-    	double inside= sqrt(square(b)-4*(a)*(c));
-    	double oneRoot = -b + inside)/(a*2);
-    	double twoRoot= -b - inside/(a*2);
-    	max(oneRoot, twoRoot);
+    	if (discriminant(a,b,c)<0)
+    	throw new IllegalArgumentException("No real roots");
+    	double inside= sqrt(discriminant(a,b,c));
+    	double oneRoot = round2((-b + inside)/(a*2));
+    	double twoRoot= round2((-b - inside)/(a*2));
+    	if (oneRoot==twoRoot) {
+    			 double test = round2(twoRoot);
+    			 String name = "" + test;
+    			 return name;
+    	}
+    	if (oneRoot<twoRoot) {
+    		String answer = oneRoot + " and " + twoRoot;
+    		return answer;
+    	} else {
+    		String answer2 = twoRoot + " and " + oneRoot;
+    		return answer2;
+		} 
+    	
     }
         
 }
