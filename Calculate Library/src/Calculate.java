@@ -146,10 +146,10 @@ public class Calculate {
         
     }
     //rounds a double input into two decimal places
-    public static double round2 ( double orig)
+    public static double round2(double orig)
     {
     	double result = 0.0;
-		
+    		
     	int tempInt = (int)(orig * 1000);
     	int roundNum = tempInt % 10;
     	tempInt = tempInt / 10;
@@ -160,6 +160,7 @@ public class Calculate {
     	result = tempInt / 100.0;
     	return result;
     }
+
     //Multiplies an integer by the inputed power/
     public static double exponent (double integer1, int power)
     {
@@ -184,9 +185,10 @@ public class Calculate {
         return x;   
     }
     //finds if the number inputted is prime or not
-    public static boolean isPrime (int integer1)
+  
+	public static boolean isPrime (int integer1)
     {
-        for(int i =2; i<integer1; i++) {
+        for(int i =2; i<integer1;) {
             if (isDivisibleBy(integer1,i));
             return true;
         }
@@ -202,24 +204,26 @@ public class Calculate {
         return gcf(number2, number1 % number2);
         }
     //squares a number
-    public static double sqrt (double number1) {
-        double number2= 1;
-        if (number1<0)
-        throw new IllegalArgumentException("Can not square negative number: " + number1);
-        while (number1 >= number2*number2) {
-            number2++;
-        }
-        return round2(.5*(number1/number2 + number2));
+    public static double sqrt (double integer1){
+    	double t;
+    	double squareroot = integer1/2;
+    	do{
+    		t = squareroot;
+    		squareroot = (t + (integer1/t))/2;
+    	}while ((t - squareroot) !=0);
+    	return squareroot;
     }
+    //
     public static String quadForm (int a, int b, int c) {
     	if (discriminant(a,b,c)<0)
     	throw new IllegalArgumentException("No real roots");
-    	double inside= sqrt(discriminant(a,b,c));
-    	double oneRoot = round2((-b + inside)/(a*2));
-    	double twoRoot= round2((-b - inside)/(a*2));
+    	
+    	double oneRoot = (-b + (sqrt(discriminant(a,b,c))))/(a*2.0);
+    	double twoRoot = (-b - (sqrt(discriminant(a,b,c))))/(a*2.0);
+     
     	if (oneRoot==twoRoot) {
-    			 double test = round2(twoRoot);
-    			 String name = "" + test;
+    			
+    			 String name = "" + twoRoot;
     			 return name;
     	}
     	if (oneRoot<twoRoot) {
