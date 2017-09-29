@@ -1,26 +1,27 @@
 
 /*Alex Zhou
- *9-4-17
+ *9-29-17
+ *2nd period
  *Our self written math library
  *it contains a series of methods to do basic math functions.
  */
 public class Calculate {
-    //square the input
+    //takes a integer input and returns a squared integer
     public static int square (int operand)
     {
         return operand * operand; 
     }
-    //cube the input
+    //takes a inputed integer and returns the cubed integer
     public static int cube (int operand)
     {
         return operand * operand * operand; 
     }
-    //average two inputs
+    //averages two double inputs and returns the average in a double
     public static double average (double number1, double number2)
     {
         return (number1+number2)/2;
     }
-    //average three inputs
+    //returns a average in a double of three double inputs
     public static double average (double number1, double number2, double number3)
     {
         return (number1+ number2+ number3)/3;
