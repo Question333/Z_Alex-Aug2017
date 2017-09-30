@@ -161,8 +161,10 @@ public class Calculate {
     	int tempInt = (int)(number * 1000);
     	int roundNum = tempInt % 10;
     	tempInt = tempInt / 10;
+    	//rounds positive number
     	if (roundNum >= 5 && tempInt > 0)
     		tempInt++;
+    	//rounds negative number
     	else if(roundNum <= -5 && tempInt < 0)
     		tempInt--;
     	result = tempInt / 100.0;
@@ -202,7 +204,7 @@ public class Calculate {
             if (isDivisibleBy(integer1,i));
             return true;
         }
-        return false;
+        return false; 
     }
     //finds the greatest common factor of two inputed int numbers and returns the value
     public static int gcf ( int number1, int number2) {
