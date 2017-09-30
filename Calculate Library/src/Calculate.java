@@ -6,7 +6,8 @@
  *it contains a series of methods to do basic math functions.
  */
 public class Calculate {
-    //takes a integer input and returns a squared integer
+	//part 1
+    //takes a integer input and returns squared integer
     public static int square (int operand)
     {
         return operand * operand; 
@@ -21,29 +22,30 @@ public class Calculate {
     {
         return (number1+number2)/2;
     }
-    //returns a average in a double of three double inputs
+    //takes three doubles inputs and returns the average of the three with a double
     public static double average (double number1, double number2, double number3)
     {
         return (number1+ number2+ number3)/3;
     }
-    //converts input radians into degrees
+    //converts inputed double radians into double degrees
     public static double toDegrees (double radian)
     {
         return (radian*180)/3.14159;
     }
-    //converts input degrees into radians
+    //converts input double degrees into double radians
     public static double toRadians (double degree)
     {
         return (degree*3.14159)/180;
     }
-    //finds discriminat of the 3 inputs
+    //takes three doubles and returns a double discriminat of the three numbers
     public static double discriminant (double a, double b, double c)
     {
         
         return (b*b) - (4 * a *c);      
     }
-    //finds mixedNumber of the input 
-    public static String toImproperFrace (int wholeNumber, int numerator, int denominator)
+    //takes three integers and converts the integers of the mixed number into a String of the improper fracation
+    //returns String of improper fracation
+    public static String toImproperFrac (int wholeNumber, int numerator, int denominator)
     {
         String mixedNumber; 
         int top = (wholeNumber *  denominator) + numerator ;
@@ -51,7 +53,8 @@ public class Calculate {
         mixedNumber = top + "/" + bottom;
         return mixedNumber;
     }
-    //finds improperFrac of the input
+    //takes two integers of the improper fraction and converts it into a mixed number
+    //returns Mixed number in a String
     public static String toMixedNum (int numerator, int denominator)
     {
         String improperFrac;
@@ -60,16 +63,18 @@ public class Calculate {
         improperFrac = wholeNumber + "_" + numerator1 + "/" + denominator; 
         return improperFrac;
     }
-    //finds the (ax+b)(cx+d) into a quadratic equation
-    public static String foil (int a, int b, int c, int d, String n) 
+    //takes 4 integers(a,b,c,d) and a String
+    //does binomial multiplication and returns it in a quadratic equation
+    public static String foil (int a, int b, int c, int d, String variable) 
     {
         String binomialMultiplication;
         int firstPart = a * c;
         int secondPart = a * d + c* b;
         int lastPart = b* d; 
-         binomialMultiplication = firstPart +"n^2" + "+" + secondPart + "n" + "+" + lastPart;
+         binomialMultiplication = firstPart + variable + "^2" + "+" + secondPart + variable + "+" + lastPart;
          return  binomialMultiplication;
     }
+    //part 2
     //accepts two integers and determines whether or not one integer is evenly divisible by another
     public static boolean isDivisibleBy (int integer1, int integer2)
     {
@@ -78,61 +83,63 @@ public class Calculate {
         return integer1% integer2==0;
     
     }
-    //accepts a integer and returns the absolute value of it
-    public static double absValue (double integer)
+    //accepts a double and returns the absolute value of it
+    public static double absValue (double number)
     {
-        if(integer>0) return integer;
-        else { return integer*-1; } 
+        if(number>0) return number;
+        else { return number*-1; } 
     }
-    //finds the biggest number of two integer
-    public static double max (double integer1, double integer2)
+    //finds the biggest number of two inputed double numbers and returns it
+    public static double max (double number1, double number2)
     {
-        if (integer1>integer2)
+        if (number1>number2)
         {
-            return integer1;
+            return number1;
         }
-        if (integer1<integer2)
+        else (number1<number2)
         {
-            return integer2;
-        }
-                
-        else 
-        {
-            return integer2;
+            return number2;
         }
             }
-    //finds the max of three integers
-    public static double max (double integer1, double integer2, double integer3)
+    //takes three inputted double numbers and returns the biggest number in a double
+    public static double max (double number1, double number2, double number3)
     {
-        if (integer1>integer2)
+        if (number1>number2)
         {
-            if (integer1>integer3)
-                {return integer1;}
+            if (number1>number3)
+                {
+            	return number1;
+            	}
             else
             {
-                return integer3;
+                return number3;
             }
         }
-        if (integer1<integer2)
+        if (number1<number2)
         {
-            if (integer2<integer3)
+            if (number2<number3)
             {
-                return integer2;
+                return number2;
             }
             else 
             {
-                return integer3;
+                return number3;
             }
         }
-        if (integer1==integer3)
+        if (number1==number3)
         {
-            return integer1;
+            return number1;
+        }
+        if (number1<number3)
+        {
+        	return number3;
         }
         else 
-            return integer1; 
+        	return number1;
         
     }
-    //finds the smallest of two integers
+    //takes two int numbers
+    //returns the smallest int number
     public static int min ( int integer1, int integer2)
     {
         if (integer1<integer2)
@@ -146,12 +153,12 @@ public class Calculate {
         return integer2; 
         
     }
-    //rounds a double input into two decimal places
-    public static double round2(double orig)
+    //rounds a double number input and reuturns it into two decimal places
+    public static double round2(double number)
     {
     	double result = 0.0;
     		
-    	int tempInt = (int)(orig * 1000);
+    	int tempInt = (int)(number * 1000);
     	int roundNum = tempInt % 10;
     	tempInt = tempInt / 10;
     	if (roundNum >= 5 && tempInt > 0)
@@ -161,19 +168,21 @@ public class Calculate {
     	result = tempInt / 100.0;
     	return result;
     }
-
-    //Multiplies an integer by the inputed power/
-    public static double exponent (double integer1, int power)
+    //part 3
+    //Takes a double and a int
+    //returns the raised double number by the inputed int
+    
+    public static double exponent (double number, int power)
     {
     	if(power<0)
     		throw new IllegalArgumentException("Code does not take negative power:" + power);
         for(int x=1; x<power; x=x+1) {
         
-        double times = integer1;
-        integer1=integer1* times; }
-        return integer1;
+        double times = number;
+        number=number* times; }
+        return number;
     }
-    //finds factorial of integer
+    //takes a int input and returns factorial of integer
     public static int factorial (int integer1)
     {
     	if (integer1<0)
@@ -185,8 +194,8 @@ public class Calculate {
         }
         return x;   
     }
-    //finds if the number inputted is prime or not
-  
+    //takes a inputed int number
+    //returns a boolean to tell if it is prime or not
 	public static boolean isPrime (int integer1)
     {
         for(int i =2; i<integer1;) {
@@ -195,7 +204,7 @@ public class Calculate {
         }
         return false;
     }
-    //finds the greatest common factor of two numbers
+    //finds the greatest common factor of two inputed int numbers and returns the value
     public static int gcf ( int number1, int number2) {
        if (number2== 0)
        return number1;
@@ -204,7 +213,7 @@ public class Calculate {
        else 
         return gcf(number2, number1 % number2);
         }
-    //squares a number
+    //takes a double and returns the squared double
     public static double sqrt (double integer1){
     	double t;
     	double squareroot = integer1/2;
@@ -214,7 +223,8 @@ public class Calculate {
     	}while ((t - squareroot) !=0);
     	return squareroot;
     }
-    //
+    //Takes three integer that are coefficients of a quadratic equatino in standard form
+    //Uses the quadratic formula to find the foots of the quadratic equation and reurns a string with the roots if any
     public static String quadForm (int a, int b, int c) {
     	if (discriminant(a,b,c)<0)
     	throw new IllegalArgumentException("No real roots");
